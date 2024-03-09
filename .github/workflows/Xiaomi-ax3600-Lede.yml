@@ -1,5 +1,5 @@
 #CI项目名
-name: Redmi-AX6-Lede
+name: Xiaomi-AX3600-Lede
 
 on:
   #自动编译：每天早上4点
@@ -18,7 +18,7 @@ jobs:
     uses: ./.github/workflows/OWRT-CORE.yml
     with:
       #编译平台，X64包含X86
-      OWRT_TARGET: Redmi-AX6
+      OWRT_TARGET: Xiaomi-AX3600
       #默认主题
       OWRT_THEME: design
       #默认主机名
