@@ -2,6 +2,12 @@
 name: OWRT-CORE
 
 on:
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
   #公用核心标识
   workflow_call:
     inputs:
@@ -131,6 +137,10 @@ jobs:
           cd ./owrt
 
           make dirclean
+
+      - name: SSH connection to Actions
+        uses: P3TERX/debugger-action@master
+        if: env.SSH_ACTIONS == 'true' || contains(github.event.action, 'ssh')
 
       - name: Download Packages
         run: |
